@@ -1,10 +1,17 @@
-name: Zipper Workflow
+name: Zipper workflow
 on: push
 
 jobs:
   build:
-    name: Zipper action
+    name: Workflow to zip the codebase and generate an artifact
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Zip codebase
+        run: zip -r codebase.zip .
+      - name: Upload codebase artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Codebase Artifact
+          path: ./codebase.zip
