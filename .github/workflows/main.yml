@@ -1,0 +1,10 @@
+name: Zipper Workflow
+  on: push
+
+jobs:
+  build:
+    name: Zipper action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./action-a
