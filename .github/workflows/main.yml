@@ -1,5 +1,6 @@
 name: Zipper workflow
 on: push
+  workflow-dispatch:
 
 jobs:
   build:
